@@ -72,18 +72,43 @@
 
 
 
-    <build>
+<!--    <build>-->
 <!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                    <configuration>-->
+<!--                        <mainClass>com.chat.FamilyChatApplication</mainClass>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <id>repackage</id>-->
+<!--                            <goals>-->
+<!--                                <goal>repackage</goal>-->
+<!--                            </goals>-->
+<!--                            <configuration>-->
+<!--                                <classifier>exec</classifier>-->
+<!--                            </configuration>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
+<!--    </build>-->
+
+
+
+    <build>
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <configuration>
-                        <mainClass>com.chat.FamilyChatApplication</mainClass>
-                    </configuration>
+<!--                                    <configuration>-->
+<!--                                        <mainClass>com.chat.FamilyChatApplication</mainClass>-->
+<!--                                    </configuration>-->
                     <executions>
                         <execution>
-                            <id>repackage</id>
                             <goals>
                                 <goal>repackage</goal>
                             </goals>
@@ -94,9 +119,7 @@
                     </executions>
                 </plugin>
             </plugins>
-<!--        </pluginManagement>-->
     </build>
-
 
 <!--    <build>-->
 <!--        <plugins>-->
