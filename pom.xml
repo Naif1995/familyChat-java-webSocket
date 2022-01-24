@@ -86,6 +86,13 @@
                         <web>java $JAVA_OPTS -jar ${project.build.directory}/${project.build.finalName}.jar</web>
                     </processTypes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         </pluginManagement>
