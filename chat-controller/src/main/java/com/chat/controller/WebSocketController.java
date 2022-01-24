@@ -1,12 +1,12 @@
 package com.chat.controller;
 
+import com.chat.services.ChatServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class WebSocketController {
@@ -14,10 +14,12 @@ public class WebSocketController {
 
     @Autowired
     SimpMessagingTemplate template;
+    @Autowired
+    ChatServices chatServices;
 
     @MessageMapping("/send/message/{chatName}")
     public void sendMessage(@Payload String body, @DestinationVariable String chatName) {
-        System.out.println(body);
+        System.out.println(chatServices.getHello());
         template.convertAndSend("/message/"+chatName, "Welcome to "+chatName);
     }
 }

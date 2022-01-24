@@ -3,6 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
+    <groupId>com.chat</groupId>
+    <artifactId>family-chat</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>family-chat</name>
+    <description>Family chat Web Socket</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -10,11 +15,7 @@
         <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.chat</groupId>
-    <artifactId>family-chat</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>familChat</name>
-    <description>Family chat Web Socket</description>
+
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -22,8 +23,8 @@
 
 
     <modules>
-        <module>chat-controller</module>
         <module>chat-service</module>
+        <module>chat-controller</module>
     </modules>
 
 
@@ -51,40 +52,55 @@
         </dependency>
     </dependencies>
 
-    <!--	<build>-->
-    <!--		<plugins>-->
-    <!--			<plugin>-->
-    <!--				<groupId>org.springframework.boot</groupId>-->
-    <!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--				<configuration>-->
-    <!--					<excludes>-->
-    <!--						<exclude>-->
-    <!--							<groupId>org.projectlombok</groupId>-->
-    <!--							<artifactId>lombok</artifactId>-->
-    <!--						</exclude>-->
-    <!--					</excludes>-->
-    <!--				</configuration>-->
-    <!--			</plugin>-->
-    <!--		</plugins>-->
-    <!--	</build>-->
+<!--    	<build>-->
+<!--    		<plugins>-->
+<!--    			<plugin>-->
+<!--    				<groupId>org.springframework.boot</groupId>-->
+<!--    				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--    				<configuration>-->
+<!--                        <classifier>exec</classifier>-->
+<!--                            					<excludes>-->
+<!--    						<exclude>-->
+<!--    							<groupId>org.projectlombok</groupId>-->
+<!--    							<artifactId>lombok</artifactId>-->
+<!--    						</exclude>-->
+<!--    					</excludes>-->
+<!--    				</configuration>-->
+<!--    			</plugin>-->
+<!--    		</plugins>-->
+<!--    	</build>-->
+
+
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.chat.FamilChatApplication</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
+
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <mainClass>com.chat.FamilyChatApplication</mainClass>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>repackage</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
