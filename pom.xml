@@ -69,22 +69,12 @@
     <!--	</build>-->
 
     <build>
-    <pluginManagement>
-    <plugins>
+        <plugins>
             <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>2.0.3</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <appName>family-chat</appName>
-                    <includeTarget>false</includeTarget>
-                    <includes>
-                        <include>${project.build.directory}/${project.build.finalName}.jar</include>
-                    </includes>
-                    <jdkVersion>17</jdkVersion>
-                    <processTypes>
-                        <web>java $JAVA_OPTS -jar ${project.build.directory}/${project.build.finalName}.jar</web>
-                    </processTypes>
+                    <mainClass>com.chat.FamilChatApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -95,6 +85,6 @@
                 </executions>
             </plugin>
         </plugins>
-        </pluginManagement>
     </build>
+
 </project>
