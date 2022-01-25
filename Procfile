@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar chat-controller/target/chat-controller-1.0-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar chat-controller/target/chat-controller-1.0-SNAPSHOT.war

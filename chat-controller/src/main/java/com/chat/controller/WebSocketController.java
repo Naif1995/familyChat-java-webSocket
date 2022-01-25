@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import services.ChatService;
 
 @Controller
 public class WebSocketController {
@@ -14,6 +15,8 @@ public class WebSocketController {
 
     @Autowired
     SimpMessagingTemplate template;
+    @Autowired
+    ChatService chatService;
 
     @MessageMapping("/send/message/{chatName}")
     public void sendMessage(@Payload String body, @DestinationVariable String chatName) {
