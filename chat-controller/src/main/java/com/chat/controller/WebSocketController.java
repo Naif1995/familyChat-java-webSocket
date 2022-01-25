@@ -19,7 +19,7 @@ public class WebSocketController {
 
     @MessageMapping("/send/message/{chatName}")
     public void sendMessage(@Payload String body, @DestinationVariable String chatName) {
-        System.out.println(body);
+        System.out.println(chatService.getHello());
         template.convertAndSend("/message/"+chatName, "Welcome to "+chatName);
     }
 }
