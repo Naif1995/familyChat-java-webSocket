@@ -26,6 +26,10 @@
         <module>chat-service</module>
     </modules>
 
+
+
+
+
     <!--	<build>-->
     <!--		<plugins>-->
     <!--			<plugin>-->
@@ -49,7 +53,7 @@
 <!--                <groupId>org.springframework.boot</groupId>-->
 <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
 <!--                <configuration>-->
-<!--                    <mainClass>com.chat.FamilChatApplication</mainClass>-->
+<!--                    <mainClass>com.chat.FamilyChatApplication</mainClass>-->
 <!--                </configuration>-->
 <!--                <executions>-->
 <!--                    <execution>-->
