@@ -17,7 +17,7 @@ import java.util.List;
 public class ChatRoom {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long chatRoomId;
 
   @Column(name = "chat_name")
@@ -32,6 +32,6 @@ public class ChatRoom {
   @Column(name = "image_chat")
   private String imageChat;
 
-  @OneToMany(mappedBy = "chatRoomId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL, fetch = FetchType.EAGER,orphanRemoval = true)
   private List<ChatHistory> chatHistories;
 }

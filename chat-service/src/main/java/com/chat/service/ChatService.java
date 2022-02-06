@@ -24,5 +24,8 @@ public class ChatService {
 
   public void saveChatHistory(String chatRoomId, ChatHistory chatHistory) {
     ChatRoom chatRoom = chatRoomRepository.findById(Long.valueOf(chatRoomId)).get();
+    chatHistory.addChatRoom(chatRoom);
+    chatRoom.getChatHistories().add(chatHistory);
+    chatRoomRepository.save(chatRoom);
   }
 }

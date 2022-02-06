@@ -24,7 +24,6 @@ public class WebSocketController {
   public void sendMessage(@Payload String chatRequest, @DestinationVariable String chatName) throws JsonProcessingException {
     ObjectMapper mapper = new ObjectMapper();
     ChatRequest chat = mapper.readValue(chatRequest, ChatRequest.class);
-    System.out.println(chat);
     chatService.saveChatHistory(chat.getChatRoomId(), convertToEntity(chat));
     template.convertAndSend("/message/" + chatName, chatRequest);
   }

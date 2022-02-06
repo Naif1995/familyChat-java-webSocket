@@ -3,6 +3,7 @@ package com.chat.controller.dto;
 import lombok.*;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +19,5 @@ public class ChatHistoryDto {
 
   private String chatText;
 
-  private Date created;
+  private Timestamp created;
 }

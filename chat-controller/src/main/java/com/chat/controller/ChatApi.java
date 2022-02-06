@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,11 +34,11 @@ public class ChatApi {
 
   private ChatRoomListDto convertToDTO(List<ChatRoom> chatRoomList) {
     modelMapper.getConfiguration().setAmbiguityIgnored(true);
-    return ChatRoomListDto.builder()
-        .chatRoomDtoList(
-            chatRoomList.stream()
-                .map(e -> modelMapper.map(e, ChatRoomDto.class))
-                .collect(Collectors.toList()))
-        .build();
+        return ChatRoomListDto.builder()
+            .chatRoomDtoList(
+                chatRoomList.stream()
+                    .map(e -> modelMapper.map(e, ChatRoomDto.class))
+                    .collect(Collectors.toList()))
+            .build();
   }
 }

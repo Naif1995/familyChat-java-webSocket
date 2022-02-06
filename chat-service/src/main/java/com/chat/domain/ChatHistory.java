@@ -14,12 +14,12 @@ import java.sql.Timestamp;
 public class ChatHistory {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long chatHistoryId;
 
   @ManyToOne
   @JoinColumn(name = "chat_room_id")
-  private ChatRoom chatRoomId;
+  private ChatRoom chatRoom;
 
   @Column(name = "send_from")
   private String sendFrom;
@@ -32,4 +32,8 @@ public class ChatHistory {
 
   @Column(name = "created")
   private Timestamp created;
+
+  public void addChatRoom(ChatRoom chatRoom) {
+    setChatRoom(chatRoom);
+  }
 }
