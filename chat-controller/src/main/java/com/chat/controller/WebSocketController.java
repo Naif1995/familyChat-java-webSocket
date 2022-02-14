@@ -13,6 +13,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 import java.sql.Date;
+import java.util.UUID;
 
 @Controller
 public class WebSocketController {
@@ -20,12 +21,13 @@ public class WebSocketController {
   @Autowired SimpMessagingTemplate template;
   @Autowired ChatService chatService;
 
-  @MessageMapping("/send/message/{chatName}")
-  public void sendMessage(@Payload String chatRequest, @DestinationVariable String chatName) throws JsonProcessingException {
+  @MessageMapping("/send/message/rooms")
+  public void sendMessage(@Payload String chatRequest) throws JsonProcessingException {
+    System.out.println(chatRequest);
     ObjectMapper mapper = new ObjectMapper();
     ChatRequest chat = mapper.readValue(chatRequest, ChatRequest.class);
     chatService.saveChatHistory(chat.getChatRoomId(), convertToEntity(chat));
-    template.convertAndSend("/message/" + chatName, chatRequest);
+    template.convertAndSend("/message/rooms", chatRequest);
   }
 
   private ChatHistory convertToEntity(ChatRequest chatRequest) {
