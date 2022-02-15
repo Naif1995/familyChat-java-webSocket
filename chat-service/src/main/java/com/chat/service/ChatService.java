@@ -6,6 +6,8 @@ import com.chat.repository.ChatRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,8 +20,21 @@ public class ChatService {
     return chatRoomRepository.findByChatRoom(chaName).getDescription();
   }
 
+  Comparator<ChatHistory> comparator = (c1, c2) -> {
+    return Long.valueOf(c1.getCreated().getTime()).compareTo(c2.getCreated().getTime());
+  };
+
   public List<ChatRoom> getAllChats() {
-    return (List<ChatRoom>) chatRoomRepository.findAll();
+    List<ChatRoom> chatRoomList = (List<ChatRoom>) chatRoomRepository.findAll();
+    chatRoomList.forEach(
+            chatRoom -> {
+//              System.out.println(chatRoom.getChatHistories());
+              List<ChatHistory> chatHistory = chatRoom.getChatHistories();
+              Collections.sort(chatHistory, comparator);
+              chatRoom.setChatHistories(chatHistory);
+            }
+    );
+    return chatRoomList;
   }
 
   public void saveChatHistory(String chatRoomId, ChatHistory chatHistory) {
