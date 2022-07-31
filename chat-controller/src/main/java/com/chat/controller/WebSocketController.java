@@ -25,7 +25,7 @@ public class WebSocketController {
     ChatRequest chat = mapper.readValue(chatRequest, ChatRequest.class);
     Long chatHistoryId = chatService.saveChatHistory(chat.getChatRoomId(), convertToEntity(chat));
     chat.setChatHistoryId(chatHistoryId.toString());
-    template.convertAndSend("/message/rooms", chatRequest);
+    template.convertAndSend("/message/rooms", chat);
   }
 
   private ChatHistory convertToEntity(ChatRequest chatRequest) {
