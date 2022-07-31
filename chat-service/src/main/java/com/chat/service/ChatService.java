@@ -37,10 +37,11 @@ public class ChatService {
     return chatRoomList;
   }
 
-  public void saveChatHistory(String chatRoomId, ChatHistory chatHistory) {
+  public Long saveChatHistory(String chatRoomId, ChatHistory chatHistory) {
     ChatRoom chatRoom = chatRoomRepository.findById(Long.valueOf(chatRoomId)).get();
     chatHistory.addChatRoom(chatRoom);
     chatRoom.getChatHistories().add(chatHistory);
-    chatRoomRepository.save(chatRoom);
+    ChatRoom chat = chatRoomRepository.save(chatRoom);
+    return chat.getChatHistories().get(chat.getChatHistories().size() - 1).getChatHistoryId();
   }
 }

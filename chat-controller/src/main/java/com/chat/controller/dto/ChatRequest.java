@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatRequest {
+    private String chatHistoryId;
     private String chatRoomId;
     private String chatText;
     private String sendFrom;
